@@ -4,14 +4,18 @@ import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
-export default class Login extends React.Component {
+export default class Signup extends React.Component {
 
-  signup() {
-    Actions.signup()
-  };
+  goBack() {
+    Actions.reset('login');
+  }
 
   blank() {
     Actions.reset('home')
+  }
+
+  login() {
+    Actions.login();
   }
 
   render() {
@@ -23,12 +27,39 @@ export default class Login extends React.Component {
           <Text style={styles.title}>Welcome to StudentTuorsitApp</Text>
         </View>
 
-        <View style={styles.subtitleView}>
-          <Text style={styles.subtitle}>Login to continue or&nbsp;
-          <Text style={styles.register}>Register</Text></Text>
-        </View>
-
-        <View style={styles.formView}>
+               <View style={styles.formView}>
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Name"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.name = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="E-mail"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.email = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Adress"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.passwadressord = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Picture url"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.picture = input}
+          />
           <TextInput style={styles.input}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Username"
@@ -46,8 +77,13 @@ export default class Login extends React.Component {
             ref={(input) => this.password = input}
           />
           <TouchableOpacity style={styles.login}>
-            <Text style={styles.loginText}> Login </Text>
+            <Text style={styles.loginText}> Register </Text>
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.subtitleView}>
+          <Text style={styles.subtitle}>Register to continue or &nbsp;
+          <Text style={styles.register} onPress={this.login}>Login</Text></Text>
         </View>
 
         <View style={styles.footerView}>
@@ -70,7 +106,7 @@ const styles = StyleSheet.create({
   },
 
   titleView: {
-    flex: 1.5,
+    flex: 2,
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
@@ -88,7 +124,7 @@ const styles = StyleSheet.create({
   },
 
   formView: {
-    flex: 1,
+    flex: 5,
     justifyContent: 'center',
     alignItems: 'center'
   },

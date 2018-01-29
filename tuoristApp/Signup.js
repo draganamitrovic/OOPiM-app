@@ -1,99 +1,85 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, StatusBar, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, StatusBar } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 export default class Signup extends React.Component {
 
-  goBack() {
-    Actions.reset('login');
-  }
-
-  blank() {
-    Actions.reset('home')
+  login() {
+    Actions.login();
   }
 
   render() {
-
     return (
+
       <View style={styles.container}>
 
-        <StatusBar barStyle="dark-content" hidden={true} />
-
-        <View style={{ flex: 4, justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 10}}>
-          <ScrollView>
-            <TextInput style={styles.inputBox}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="Email address"
-              placeholderTextColor="grey"
-              selectionColor="blue"
-              keyboardType="email-address"
-              returnKeyType="next"
-              onSubmitEditing={() => this.name.focus()}
-            />
-            <TextInput style={styles.inputBox}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="Name"
-              placeholderTextColor="grey"
-              selectionColor="blue"
-              returnKeyType="next"
-              ref={(input) => this.name = input}
-              onSubmitEditing={() => this.user.focus()}
-            />
-            <TextInput style={styles.inputBox}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="User"
-              placeholderTextColor="grey"
-              selectionColor="blue"
-              returnKeyType="next"
-              ref={(input) => this.user = input}
-              onSubmitEditing={() => this.password.focus()}
-            />
-            <TextInput style={styles.inputBox}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="Password"
-              secureTextEntry={true}
-              placeholderTextColor="grey"
-              returnKeyType="go"
-              ref={(input) => this.password = input}
-              onSubmitEditing={() => this.company.focus()}
-            />
-            <TextInput style={styles.inputBox}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="Company Name"
-              placeholderTextColor="grey"
-              selectionColor="blue"
-              returnKeyType="next"
-              ref={(input) => this.company = input}
-              onSubmitEditing={() => this.country.focus()}
-            />
-            <TextInput style={styles.inputBox}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="Country"
-              placeholderTextColor="grey"
-              selectionColor="blue"
-              returnKeyType="next"
-              ref={(input) => this.country = input}
-            />
-          </ScrollView>
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Welcome to StudentTuorsitApp</Text>
         </View>
 
-        <View style={{ flex: 1.5, justifyContent: 'center', alignItems: 'center' }}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>REGISTER</Text>
+               <View style={styles.formView}>
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Name"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.name = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="E-mail"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.email = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Adress"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.passwadressord = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Picture url"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.picture = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Username"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.username = input}
+          />
+          <TextInput style={styles.input}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Password"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.password = input}
+          />
+          <TouchableOpacity style={styles.login}>
+            <Text style={styles.loginText}> Register </Text>
           </TouchableOpacity>
         </View>
 
-        <View style={{ flex: 1.5, justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column' }}>
-          <View style={styles.signupTC}>
-            <Text onPress={this.goBack} style={styles.register}>Log in </Text>
-            <Text style={styles.tekst}>to an existing account</Text>
-          </View>
+        <View style={styles.subtitleView}>
+          <Text style={styles.subtitle}>Register to continue or &nbsp;
+          <Text style={styles.register} onPress={this.login}>Login</Text></Text>
+        </View>
 
-          <View style={styles.skip}>
-            <TouchableOpacity style={styles.skipBtn} onPress={this.blank} ><Text style={styles.tekst}>Skip</Text></TouchableOpacity>
-          </View>
+        <View style={styles.footerView}>
+          <Text style={styles.footer}>by Dragana Mitrovic</Text>
         </View>
 
       </View>
@@ -103,58 +89,87 @@ export default class Signup extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#364857',
     flex: 1,
+    height: '100%',
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100%',
-    width: '100%'
+    backgroundColor: '#283C63',
   },
-  container2: {
-    backgroundColor: '#4169e1',
+
+  titleView: {
+    flex: 2,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
-  inputBox: {
-    width: 600,
-    backgroundColor: "white",
-    margin: 5,
-    fontSize: 25,
-    color: "black",
-    borderRadius: 5,
+
+  subtitleView: {
+    flex: 0.5,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
-  buttonText: {
-    fontSize: 45,
-    fontWeight: '500',
-    color: "white",
-    textAlign: 'center',
-  
-  },
-  button: {
-    backgroundColor: '#4169e1',
-  },
-  signupTC: {
-    backgroundColor: '#4169e1',
-    marginBottom: 5,
-    flexDirection: 'row',
-  },
-  tekst: {
-    fontSize: 30,
-    color: "white",
-  },
+
   register: {
-    color: "white",
-    fontSize: 30,
-    fontWeight: '900'
+    fontSize: 17,
+    color: '#F85F73',
+    fontWeight: 'bold'
   },
- 
-  skip: {
-    backgroundColor: '#4169e1',
+
+  formView: {
+    flex: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  skipBtn: {
+
+  footerView: {
+    flex: 0.25,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width: '100%',
+    padding: 10
+  },
+
+  footer: {
+    textAlign: 'right',
+    color: '#928A97',
+    alignSelf: 'flex-end',
+    width: '100%',
+    fontSize: 12
+  },
+
+  input: {
+    width: 230,
+    height: 40,
+    marginBottom: 15,
+    backgroundColor: '#F0FFF3',
+    textAlign: 'center'
+  },
+
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    paddingBottom: 20,
+    color: '#F85F73',
+  },
+
+  subtitle: {
+    fontSize: 17,
+    color: '#928A97',
+  },
+
+  login: {
+    width: 85,
+    height: 30,
+    marginTop: 5,
+    backgroundColor: '#F85F73',
+    justifyContent: 'center',
     alignItems: 'center',
-    width: 150,
-    borderLeftWidth: 3,
-    borderWidth: 3,
-    borderColor: 'white',
-    padding: 5
+    borderRadius: 7,
   },
+
+  loginText: {
+    color: '#283C63',
+    textAlign: 'center',
+  }
+
 })

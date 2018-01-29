@@ -15,4 +15,9 @@
 #444F5A
 #3E4149
 
+#283C63 background
+#F85F73 title pink
+#928A97 subtitle brown
+#F0FFF3 light
+
 http://www.colorhunt.co/
