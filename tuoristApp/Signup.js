@@ -103,7 +103,7 @@ export default class Signup extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#4169e1',
+    backgroundColor: '#364857',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
