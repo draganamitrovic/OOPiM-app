@@ -24,8 +24,8 @@ export default class Login extends React.Component {
         </View>
 
         <View style={styles.subtitleView}>
-          <Text style={styles.subtitle}>Login to continue or</Text>
-          <Text style={styles.register}>Register</Text>
+          <Text style={styles.subtitle}>Login to continue or&nbsp;
+          <Text style={styles.register}>Register</Text></Text>
         </View>
 
         <View style={styles.formView}>
@@ -50,6 +50,10 @@ export default class Login extends React.Component {
           </TouchableOpacity>
         </View>
 
+        <View style={styles.footerView}>
+          <Text style={styles.footer}>by Dragana Mitrovic</Text>
+        </View>
+
       </View>
     )
   }
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3E4149',
+    backgroundColor: '#283C63',
   },
 
   titleView: {
@@ -72,14 +76,15 @@ const styles = StyleSheet.create({
   },
 
   subtitleView: {
-    flex: 1,
+    flex: 0.5,
     justifyContent: 'flex-start',
     alignItems: 'center'
   },
 
   register: {
     fontSize: 17,
-    color: '#FF9999',
+    color: '#F85F73',
+    fontWeight: 'bold'
   },
 
   formView: {
@@ -88,11 +93,27 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 
+  footerView: {
+    flex: 0.25,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width: '100%',
+    padding: 10
+  },
+
+  footer: {
+    textAlign: 'right',
+    color: '#928A97',
+    alignSelf: 'flex-end',
+    width: '100%',
+    fontSize: 12
+  },
+
   input: {
     width: 230,
     height: 40,
     marginBottom: 15,
-    backgroundColor: '#c5c6c8',
+    backgroundColor: '#F0FFF3',
     textAlign: 'center'
   },
 
@@ -100,26 +121,26 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     paddingBottom: 20,
-    color: '#FF9999',
+    color: '#F85F73',
   },
 
   subtitle: {
     fontSize: 17,
-    color: '#FFC8C8',
+    color: '#928A97',
   },
 
   login: {
     width: 85,
     height: 30,
     marginTop: 5,
-    backgroundColor: '#FF9999',
+    backgroundColor: '#F85F73',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 7,
   },
 
   loginText: {
-    color: '#3E4149',
+    color: '#283C63',
     textAlign: 'center',
   }
 

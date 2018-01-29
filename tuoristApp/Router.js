@@ -15,16 +15,16 @@ export default class Routes extends React.Component {
   
       return (
   
-        <Router>
+        <Router showNavigationBar={false}>
           <Stack>
-            <Scene key="login" component={Login} title="Login" />
-            <Scene key="signup" component={Signup} title="Register" />
-            <Scene key="organizator" component={Organizator} title="Organizator" />
-            <Scene key="student" component={Student} title="Student" />
-            <Scene key="admin" component={Admin} title="Admin" />
-            <Scene key="ponuda" component={Ponuda} title="Ponuda" />
-            <Scene key="user" component={User} title="User" />
-            <Scene key="test" component={Test} initial={true} />
+            <Scene key="login" component={Login} initial={true} hideNavBar={true} />
+            <Scene key="signup" component={Signup} title="Register" hideNavBar={true} />
+            <Scene key="organizator" component={Organizator} title="Organizator" hideNavBar={true} />
+            <Scene key="student" component={Student} title="Student" hideNavBar={true} />
+            <Scene key="admin" component={Admin} title="Admin" hideNavBar={true} />
+            <Scene key="ponuda" component={Ponuda} title="Ponuda" hideNavBar={true} />
+            <Scene key="user" component={User} title="User" hideNavBar={true} />
+            <Scene key="test" component={Test} hideNavBar={true} />
           </Stack>
         </Router>
       )

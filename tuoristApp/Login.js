@@ -10,55 +10,45 @@ export default class Login extends React.Component {
     Actions.signup()
   };
 
-  blank() {
-    Actions.reset('home')
-  }
-
   render() {
     return (
 
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" hidden={true} />
 
-        <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'column' }}>
-          <TextInput style={styles.inputBox}
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Welcome to StudentTuorsitApp</Text>
+        </View>
+
+        <View style={styles.subtitleView}>
+          <Text style={styles.subtitle}>Login to continue or&nbsp;
+          <Text style={styles.register} onPress={this.signup}>Register</Text></Text>
+        </View>
+
+        <View style={styles.formView}>
+          <TextInput style={styles.input}
             underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="E-Mail"
-            placeholderTextColor="grey"
-            selectionColor="blue"
-            keyboardType="email-address"
-            returnKeyType="next"
-            onSubmitEditing={() => this.password.focus()}
+            placeholder="Username"
+            secureTextEntry={true}
+            placeholderTextColor="#31343a"
+            returnKeyType="go"
+            ref={(input) => this.username = input}
           />
-
-          <TextInput style={styles.inputBox}
+          <TextInput style={styles.input}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Password"
             secureTextEntry={true}
-            placeholderTextColor="grey"
+            placeholderTextColor="#31343a"
             returnKeyType="go"
             ref={(input) => this.password = input}
           />
-        </View>
-
-        <View style={styles.login}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>LOGIN</Text>
+          <TouchableOpacity style={styles.login}>
+            <Text style={styles.loginText}> Login </Text>
           </TouchableOpacity>
         </View>
 
-        <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'column' }}>
-          <View style={styles.signupTC}>
-             <Text onPress={this.signup} style={styles.register}>Signup </Text>
-            <Text style={styles.tekst}>a new account</Text>
-          </View>
-
-          <View style={styles.skip}>
-            <TouchableOpacity style={styles.skipBtn} onPress={this.blank} ><Text style={styles.tekst}>Skip</Text></TouchableOpacity>
-          </View>
+        <View style={styles.footerView}>
+          <Text style={styles.footer}>by Dragana Mitrovic</Text>
         </View>
-
-
 
       </View>
     )
@@ -70,67 +60,84 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     width: '100%',
-    backgroundColor: '#364857',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#283C63',
   },
-  login: {
-    flex:1.5,
-    alignItems:'center',
-    justifyContent: 'center'
+
+  titleView: {
+    flex: 1.5,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
-  container2: {
-    backgroundColor: '#4169e1',
-    flexGrow: 1,
+
+  subtitleView: {
+    flex: 0.5,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
+
+  register: {
+    fontSize: 17,
+    color: '#F85F73',
+    fontWeight: 'bold'
+  },
+
+  formView: {
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
-  inputBox: {
-    width: 600,
-    backgroundColor: "white",
-    borderRadius: 5,
-    fontSize: 25,
-    color: "black",
-    margin: 10,
+
+  footerView: {
+    flex: 0.25,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width: '100%',
+    padding: 10
   },
-  buttonText: {
-    fontSize: 65,
-    fontWeight: '500',
-    color: "white",
+
+  footer: {
+    textAlign: 'right',
+    color: '#928A97',
+    alignSelf: 'flex-end',
+    width: '100%',
+    fontSize: 12
+  },
+
+  input: {
+    width: 230,
+    height: 40,
+    marginBottom: 15,
+    backgroundColor: '#F0FFF3',
     textAlign: 'center'
   },
-  button: {
-    backgroundColor: '#4169e1',
+
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    paddingBottom: 20,
+    color: '#F85F73',
   },
-  signupTC: {
-    backgroundColor: '#4169e1',
-    marginBottom: 5,
-    flexDirection: 'row',
+
+  subtitle: {
+    fontSize: 17,
+    color: '#928A97',
   },
-  tekst: {
-    fontSize: 30,
-    color: "white",
-  },
-  register: {
-    color: "white",
-    fontSize: 30,
-    fontWeight: '900'
-  },
-  signupBtn: {
-    backgroundColor: '#4169e1',
-    borderRadius: 10,
-    width: 165,
-  },
-    skip: {
-    backgroundColor: '#4169e1',
-  },
-  skipBtn: {
+
+  login: {
+    width: 85,
+    height: 30,
+    marginTop: 5,
+    backgroundColor: '#F85F73',
+    justifyContent: 'center',
     alignItems: 'center',
-    width: 150,
-    borderLeftWidth: 3,
-    borderWidth: 3,
-    borderColor: 'white',
-    padding: 5
+    borderRadius: 7,
   },
+
+  loginText: {
+    color: '#283C63',
+    textAlign: 'center',
+  }
 
 })
