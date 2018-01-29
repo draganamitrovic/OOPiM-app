@@ -10,4 +10,9 @@
 #364857
 #3DC7BE plava
 
+#FFC8C8
+#FF9999
+#444F5A
+#3E4149
+
 http://www.colorhunt.co/

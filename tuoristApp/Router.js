@@ -7,6 +7,7 @@ import Student from './Student';
 import Admin from './Admin';
 import Ponuda from './Ponuda';
 import User from './User';
+import Test from './Test';
 
 export default class Routes extends React.Component {
 
@@ -16,13 +17,14 @@ export default class Routes extends React.Component {
   
         <Router>
           <Stack>
-            <Scene key="login" component={Login} title="Login" initial={true} />
+            <Scene key="login" component={Login} title="Login" />
             <Scene key="signup" component={Signup} title="Register" />
             <Scene key="organizator" component={Organizator} title="Organizator" />
             <Scene key="student" component={Student} title="Student" />
             <Scene key="admin" component={Admin} title="Admin" />
             <Scene key="ponuda" component={Ponuda} title="Ponuda" />
             <Scene key="user" component={User} title="User" />
+            <Scene key="test" component={Test} initial={true} />
           </Stack>
         </Router>
       )
