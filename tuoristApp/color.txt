@@ -14,8 +14,12 @@
 #FF9999
 #444F5A
 #3E4149
-
+------------------------
 #283C63 background
+
+#213151 darker
+#2f4775 lighter
+
 #F85F73 title pink
 #928A97 subtitle brown
 #F0FFF3 light

@@ -8,7 +8,11 @@ export default class Signup extends React.Component {
 
   login() {
     Actions.login();
-  }
+  };
+
+  register() {
+    Actions.student();
+  };
 
   render() {
     return (
@@ -19,7 +23,7 @@ export default class Signup extends React.Component {
           <Text style={styles.title}>Welcome to StudentTuorsitApp</Text>
         </View>
 
-               <View style={styles.formView}>
+        <View style={styles.formView}>
           <TextInput style={styles.input}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Name"
@@ -68,7 +72,7 @@ export default class Signup extends React.Component {
             returnKeyType="go"
             ref={(input) => this.password = input}
           />
-          <TouchableOpacity style={styles.login}>
+          <TouchableOpacity style={styles.register}>
             <Text style={styles.loginText}> Register </Text>
           </TouchableOpacity>
         </View>

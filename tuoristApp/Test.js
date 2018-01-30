@@ -1,93 +1,31 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, StatusBar } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-
-export default class Signup extends React.Component {
-
-  goBack() {
-    Actions.reset('login');
-  }
-
-  blank() {
-    Actions.reset('home')
-  }
-
-  login() {
-    Actions.login();
-  }
-
+export default class Student extends React.Component {
   render() {
     return (
-
       <View style={styles.container}>
 
-        <View style={styles.titleView}>
-          <Text style={styles.title}>Welcome to StudentTuorsitApp</Text>
+        <View style={styles.header}>
+          <View style={styles.logout}>
+            <TouchableOpacity style={styles.logoutbtn} onPress={this.login}>
+              <Text style={styles.logoutText}> Log out </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headerTitle}>
+            <Text style={styles.title}>StudentTuorsitApp</Text>
+          </View>
         </View>
 
-               <View style={styles.formView}>
-          <TextInput style={styles.input}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Name"
-            secureTextEntry={true}
-            placeholderTextColor="#31343a"
-            returnKeyType="go"
-            ref={(input) => this.name = input}
-          />
-          <TextInput style={styles.input}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="E-mail"
-            secureTextEntry={true}
-            placeholderTextColor="#31343a"
-            returnKeyType="go"
-            ref={(input) => this.email = input}
-          />
-          <TextInput style={styles.input}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Adress"
-            secureTextEntry={true}
-            placeholderTextColor="#31343a"
-            returnKeyType="go"
-            ref={(input) => this.passwadressord = input}
-          />
-          <TextInput style={styles.input}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Picture url"
-            secureTextEntry={true}
-            placeholderTextColor="#31343a"
-            returnKeyType="go"
-            ref={(input) => this.picture = input}
-          />
-          <TextInput style={styles.input}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Username"
-            secureTextEntry={true}
-            placeholderTextColor="#31343a"
-            returnKeyType="go"
-            ref={(input) => this.username = input}
-          />
-          <TextInput style={styles.input}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Password"
-            secureTextEntry={true}
-            placeholderTextColor="#31343a"
-            returnKeyType="go"
-            ref={(input) => this.password = input}
-          />
-          <TouchableOpacity style={styles.login}>
-            <Text style={styles.loginText}> Register </Text>
-          </TouchableOpacity>
+        <View style={styles.body}>
+          <View style={styles.listView}>
+          </View>
+          <View style={styles.listViewBtn}>
+          </View>
         </View>
 
-        <View style={styles.subtitleView}>
-          <Text style={styles.subtitle}>Register to continue or &nbsp;
-          <Text style={styles.register} onPress={this.login}>Login</Text></Text>
-        </View>
-
-        <View style={styles.footerView}>
-          <Text style={styles.footer}>by Dragana Mitrovic</Text>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>by Dragana Mitrovic</Text>
         </View>
 
       </View>
@@ -100,84 +38,93 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     width: '100%',
+    backgroundColor: '#283C63',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#283C63',
   },
 
-  titleView: {
-    flex: 2,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+  header: {
+    flex: 3,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20
   },
 
-  subtitleView: {
-    flex: 0.5,
+
+  logout: {
+    flex: 1,
+    width: '100%',
+    marginTop: 5,
+    alignItems: 'flex-end',
     justifyContent: 'flex-start',
-    alignItems: 'center'
   },
 
-  register: {
-    fontSize: 17,
-    color: '#F85F73',
+  logoutbtn: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 75,
+    height: 30,
+    borderBottomLeftRadius: 15,
+    backgroundColor: '#F85F73'
+  },
+
+  logoutText: {
+    color: '#283C63',
+    textAlign: 'center',
+    paddingBottom: 3,
+    paddingLeft: 2,
+    fontSize: 16,
     fontWeight: 'bold'
   },
 
-  formView: {
-    flex: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  footerView: {
-    flex: 0.25,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
+  headerTitle: {
+    flex: 1,
     width: '100%',
-    padding: 10
-  },
-
-  footer: {
-    textAlign: 'right',
-    color: '#928A97',
-    alignSelf: 'flex-end',
-    width: '100%',
-    fontSize: 12
-  },
-
-  input: {
-    width: 230,
-    height: 40,
-    marginBottom: 15,
-    backgroundColor: '#F0FFF3',
-    textAlign: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     paddingBottom: 20,
-    color: '#F85F73',
+    color: '#F85F73'
   },
 
-  subtitle: {
-    fontSize: 17,
-    color: '#928A97',
+  body: {
+    flex: 12,
+    width: '100%'
   },
 
-  login: {
-    width: 85,
-    height: 30,
-    marginTop: 5,
-    backgroundColor: '#F85F73',
+  listView: {
+    flex: 8,
+    width: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 7,
+    alignItems: 'center'
   },
 
-  loginText: {
-    color: '#283C63',
-    textAlign: 'center',
-  }
+  listViewBtn: {
+    flex: 2,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  footer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width: '100%',
+    padding: 10
+  },
+
+  footerText: {
+    textAlign: 'right',
+    color: '#928A97',
+    alignSelf: 'flex-end',
+    width: '100%',
+    fontSize: 12
+  },
 
 })

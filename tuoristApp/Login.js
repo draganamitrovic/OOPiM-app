@@ -10,6 +10,10 @@ export default class Login extends React.Component {
     Actions.signup()
   };
 
+  login() {
+    Actions.student();
+  };
+
   render() {
     return (
 
@@ -41,7 +45,7 @@ export default class Login extends React.Component {
             returnKeyType="go"
             ref={(input) => this.password = input}
           />
-          <TouchableOpacity style={styles.login}>
+          <TouchableOpacity style={styles.login} onPress={this.login}>
             <Text style={styles.loginText}> Login </Text>
           </TouchableOpacity>
         </View>
