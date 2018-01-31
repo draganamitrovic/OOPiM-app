@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, StatusBar } from '
 import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
 export default class Login extends React.Component {
 
   signup() {

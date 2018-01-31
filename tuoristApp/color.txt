@@ -20,6 +20,11 @@
 #213151 darker
 #2f4775 lighter
 
+#19233e border blue
+#f86f81 border pink
+
+#b8b3bb text color
+
 #F85F73 title pink
 #928A97 subtitle brown
 #F0FFF3 light
