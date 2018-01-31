@@ -4,39 +4,36 @@ import { Actions } from 'react-native-router-flux';
 
 export default class Student extends React.Component {
 
+  state = {
+    destination: [],
+  }
+
   logout() {
     Actions.login();
-  };
+  }
 
-  listDestination() {
-    var destination = [{ name: 'destination 1', id: 1 }, { name: 'destination 2', id: 2 }, { name: 'destination', id: 3 }];
-    
-    let destinationItemList = [];
+  componentWillMount() {
+    this.setState({ destination: [{ name: 'destination 1', id: 1 }, { name: 'destination 2', id: 2 }, { name: 'destination', id: 3 }] })
+  }
 
-    destinationItemList = destination.map(Element => {
-      return
-      <View style={styles.destinationItem}>
-
-        <Text style={styles.destText}> {Element.name} </Text>
-
+  test() {
+    return this.state.destination.map((e, i) => {
+      return <View style={{ flex: 1, flexDirection: 'row', width: '100%', height: 50, borderBottomWidth: 1, borderBottomColor: '#928A97'}}>
+        <Text style={styles.destText}>{e.name}</Text>
         <TouchableOpacity style={styles.details} onPress={this.details}>
           <Text style={styles.detailsText}> Details </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.book} onPress={this.book}>
           <Text style={styles.bookText}> Book Now </Text>
         </TouchableOpacity>
-
       </View>
     })
-    return (
-      <ScrollView>
-        {destinationItemList}
-      </ScrollView>
-    )
   }
 
+
+
   render() {
-    
+
     return (
       <View style={styles.container}>
 
@@ -52,11 +49,11 @@ export default class Student extends React.Component {
         </View>
 
         <View style={styles.body}>
-          <ScrollView>
-            {this.listDestination()}
+          <ScrollView style={{ flex: 1, width: '100%', height: '100%', margin: 10 }}>
+
+            {this.test()}
+
           </ScrollView>
-          <View style={styles.listViewBtn}>
-          </View>
         </View>
 
         <View style={styles.footer}>
@@ -135,24 +132,29 @@ const styles = StyleSheet.create({
 
   body: {
     flex: 14,
-    width: '100%'
+    height: '100%',
+    width: '100%',
+    padding: 30,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
 
   listView: {
     flex: 8,
-    width: '90%',
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
   details: {
-    alignItems: 'center',
     justifyContent: 'center',
-    width: 75,
-    height: 30,
+    alignItems: 'center',
+    width: 50,
+    height: 25,
     backgroundColor: '#F85F73',
-    borderWidth: 2,
-    borderColor: '#f86f81'
+    margin: 10,
+    borderTopLeftRadius: 5,
+    borderBottomRightRadius: 5,
   },
 
   detailsText: {
@@ -160,18 +162,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: 3,
     paddingLeft: 2,
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold'
   },
 
   book: {
-    alignItems: 'center',
     justifyContent: 'center',
-    width: 75,
-    height: 30,
+    alignItems: 'center',
+    width: 70,
+    height: 25,
     backgroundColor: '#f86f81',
     borderWidth: 2,
-    borderColor: '#F85F73'
+    borderColor: '#F85F73',
+    margin: 10,
+    borderTopLeftRadius: 5,
+    borderBottomRightRadius: 5,
   },
 
   bookText: {
@@ -179,16 +184,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: 3,
     paddingLeft: 2,
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold'
   },
 
-  destinationItem: {
-    justifyContent: 'space-between',
-    height: 40,
-    width: '100%',
-    borderBottomWidth: 2,
-    borderColor: '#f86f81'
+  name: {
+    flex: 2,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  detailsbook: {
+    flex: 1,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
   },
 
   destText: {
@@ -196,7 +208,9 @@ const styles = StyleSheet.create({
     color: '#b8b3bb',
     alignSelf: 'center',
     width: '100%',
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: 'bold',
+    width: 195
   },
 
   listViewBtn: {
